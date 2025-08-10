@@ -25,7 +25,7 @@ chat_template = ChatPromptTemplate(
 )
 
 # Initialize Gemini AI Model-LOGIC2
-chat_model = ChatGoogleGenerativeAI(api_key="your_api_key", model="gemini-2.0-flash-exp")
+chat_model = ChatGoogleGenerativeAI(api_key=st.secrets["api_key"], model="gemini-2.0-flash-exp")
 
 # Chain Components
 chain = chat_template | chat_model | parser
@@ -57,4 +57,5 @@ if st.button("Get Cost Estimate"):
             except Exception as e:
                 st.error(f"Error fetching data: {e}")
     else:
+
         st.warning("Please enter both source and destination.")
